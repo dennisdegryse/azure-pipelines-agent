@@ -1,0 +1,13 @@
+[Unit]
+Description={{Description}}
+After=network.target
+
+[Service]
+ExecStart={{AgentRoot}}/runsvc.sh
+WorkingDirectory={{AgentRoot}}
+KillMode=process
+KillSignal=SIGTERM
+TimeoutStopSec=5min
+
+[Install]
+WantedBy=multi-user.target

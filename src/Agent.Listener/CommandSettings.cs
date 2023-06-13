@@ -127,6 +127,11 @@ namespace Microsoft.VisualStudio.Services.Agent.Listener
                 defaultValue: false);
         }
 
+        public bool GetDontInstallAsSudo()
+        {
+            return TestFlag(Configure?.DontInstallAsSudo, Constants.Agent.CommandLine.Flags.DontInstallAsSudo);
+        }
+
         public bool GetAlwaysExtractTask()
         {
             return TestFlag(Configure?.AlwaysExtractTask, Constants.Agent.CommandLine.Flags.AlwaysExtractTask);

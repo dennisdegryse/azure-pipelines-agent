@@ -135,6 +135,7 @@ namespace Microsoft.VisualStudio.Services.Agent
                 public static class Flags
                 {
                     public const string AcceptTeeEula = "acceptteeeula";
+                    public const string DontInstallAsSudo = "dontinstallassudo";
                     public const string AddDeploymentGroupTags = "adddeploymentgrouptags";
                     public const string AddMachineGroupTags = "addmachinegrouptags";
                     public const string AddEnvironmentVirtualMachineResourceTags = "addvirtualmachineresourcetags";

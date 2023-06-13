@@ -21,7 +21,7 @@ namespace Microsoft.VisualStudio.Services.Agent.Listener.Configuration
         // This is the name you would see when you do `systemctl list-units | grep vsts`
         private const string _svcNamePattern = "vsts.agent.{0}.{1}.{2}.service";
         private const string _svcDisplayPattern = "Azure Pipelines Agent ({0}.{1}.{2})";
-        private const string _shTemplate = "systemd.svc.sh.template";
+        private const string _shTemplatePattern = "systemd{0}.svc.sh.template";
         private const string _shName = "svc.sh";
 
         public void GenerateScripts(AgentSettings settings)
@@ -33,8 +33,8 @@ namespace Microsoft.VisualStudio.Services.Agent.Listener.Configuration
                 CalculateServiceName(settings, _svcNamePattern, _svcDisplayPattern, out serviceName, out serviceDisplayName);
 
                 string svcShPath = Path.Combine(HostContext.GetDirectory(WellKnownDirectory.Root), _shName);
-
-                string svcShContent = File.ReadAllText(Path.Combine(HostContext.GetDirectory(WellKnownDirectory.Bin), _shTemplate));
+                string svcShTemplate = string.Format(_shTemplatePattern, settings.DontInstallAsSudo ? "-user" : "");
+                string svcShContent = File.ReadAllText(Path.Combine(HostContext.GetDirectory(WellKnownDirectory.Bin), svcShTemplate));
                 var tokensToReplace = new Dictionary<string, string>
                                           {
                                               { "{{SvcDescription}}", serviceDisplayName },

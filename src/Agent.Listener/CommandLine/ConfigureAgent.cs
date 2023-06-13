@@ -9,6 +9,9 @@ namespace Agent.Listener.CommandLine
         [Option(Constants.Agent.CommandLine.Flags.AcceptTeeEula)]
         public bool AcceptTeeEula { get; set; }
 
+        [Option(Constants.Agent.CommandLine.Flags.DontInstallAsSudo)]
+        public bool DontInstallAsSudo { get; set; }
+
         [Option(Constants.Agent.CommandLine.Flags.AddDeploymentGroupTags)]
         public bool AddDeploymentGroupTags { get; set; }
 

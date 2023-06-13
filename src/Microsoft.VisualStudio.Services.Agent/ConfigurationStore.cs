@@ -35,6 +35,9 @@ namespace Microsoft.VisualStudio.Services.Agent
         [DataMember(EmitDefaultValue = false)]
         public bool AcceptTeeEula { get; set; }
 
+	[DataMember(EmitDefaultValue = false)]
+	public bool InstallAsSudo { get; set; }
+
         [DataMember(EmitDefaultValue = false)]
         public int AgentId { get; set; }
 
